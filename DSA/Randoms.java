@@ -1,17 +1,6 @@
 import java.util.*;
 
 public class Randoms {
-    // public static void main(String[] args) {
-    //     int length = 10; // Length of the array
-    //     int min = 1;     // Minimum value for the random numbers
-    //     int max = 100;   // Maximum value for the random numbers
-
-    //     int[] randomArray = generateSortedRandomArray(length, min, max);
-
-    //     // Print the sorted random array
-    //     System.out.println(Arrays.toString(randomArray));
-    // }
-
     public static int[] generateAscSortedRandomArray(int length, int min, int max) {
         Random random = new Random();
         int[] array = new int[length];
@@ -37,7 +26,15 @@ public class Randoms {
         }
 
         // Sort the array in ascending order
-        Arrays.sort(array, Collections.reverseOrder());
+        Arrays.sort(array);
+
+        int l = 0, r = length - 1;
+        while (l < r) {
+            int temp = array[l];
+            array[l] = array[r];
+            array[r] = temp;
+            l++; r--;
+        }
 
         return array;
     }

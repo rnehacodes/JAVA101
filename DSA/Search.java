@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Search {
     public static void main(String[] args) {
-        int[] nums = Randoms.generateSortedRandomArray(8, 0, 50);
+        int[] nums = Randoms.generateAscSortedRandomArray(8, 0, 50);
         int target = 10;
         System.out.println("Simple Binary Search");
         System.out.print("Array: " + Arrays.toString(nums) + "\n Element to be searched: " + target + "\n");
