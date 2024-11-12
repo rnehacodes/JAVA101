@@ -1,25 +1,28 @@
 import java.util.HashSet;
-class Node {
-    int value;
-    Node next;
 
-    Node(int val) {
-        this.value = val;
-        this.next = null;
+public class LL {
+    private class Node {
+        int value;
+        Node next;
+
+        Node(int val) {
+            this.value = val;
+            this.next = null;
+        }
+
+        Node() {}
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + value +
+                    ", next=" + (next != null ? "Node@" + Integer.toHexString(next.hashCode()) : "null") +
+                    '}';
+        }
     }
 
-    Node() {}
+    public LL() {}
 
-    @Override
-    public String toString() {
-        return "Node{" +
-                "data=" + value +
-                ", next=" + (next != null ? "Node@" + Integer.toHexString(next.hashCode()) : "null") +
-                '}';
-    }
-}
-
-class LL{
     Node head = new Node();
 
     public void addNode(int val) {
@@ -39,6 +42,16 @@ class LL{
         pointer.next = node;
     }
 
+    public void printNodes() {
+        Node pointer = head;
+        System.out.print("{" + "\n");
+        while(pointer != null) {
+            System.out.print(pointer + "," + "\n");
+            pointer = pointer.next;
+        }        
+        System.out.print("}");
+    }
+
     public void displayNodes() {
         HashSet<Node> set = new HashSet<>();
         Node pointer = head;
@@ -46,7 +59,7 @@ class LL{
         while(!set.contains(pointer)) {
             System.out.print(pointer);
             if(pointer != null) {
-               System.out.print("," + " ");
+               System.out.print("," + "\n");
             }
             pointer = pointer.next;
         }        
@@ -74,4 +87,9 @@ class LL{
         }
         displayNodes();
     }
+
+    public void recursiveReverse(Node head) {
+        //
+    }
 }
+
